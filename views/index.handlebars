@@ -34,10 +34,37 @@
     <div class="inferior">
       <ul>
         {{#allContents}}
-        <li><a class='link' href="/content/{{ _id }}">{{ title }}</a></li>
+        <li class="carousel-visible"><a class='link' href="/content/{{ _id }}">{{ title }}</a>1</li>
+        {{/allContents}}
+        {{#allContents}}
+        <li class="carousel-visible"><a class='link' href="/content/{{ _id }}">{{ title }}</a>1</li>
+        {{/allContents}}
+        {{#allContents}}
+        <li class="carousel-visible"><a class='link' href="/content/{{ _id }}">{{ title }}</a>1</li>
+        {{/allContents}}
+        {{#allContents}}
+        <li class="carousel-invisible"><a class='link' href="/content/{{ _id }}">{{ title }}</a>2</li>
+        {{/allContents}}
+        {{#allContents}}
+        <li class="carousel-invisible"><a class='link' href="/content/{{ _id }}">{{ title }}</a>2</li>
+        {{/allContents}}
+        {{#allContents}}
+        <li class="carousel-invisible"><a class='link' href="/content/{{ _id }}">{{ title }}</a>2</li>
         {{/allContents}}
       </ul>
+      <i><input id="clickMe" type="button" value="clickme" onclick="doFunction();" /></i>
     </div>
-  </div>  
+  </div>
+  <script>
+  document.getElementById("clickMe").onclick = function () {
+
+    let list = document.querySelectorAll("li");
+
+    for (let i = 0; i < list.length; ++i) {
+      list[i].classList.toggle('carousel-invisible')
+      list[i].classList.toggle('carousel-visible')
+    }
+  };
+  </script>
 </body>
 </html>

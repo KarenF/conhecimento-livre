@@ -92,3 +92,11 @@ align-items: flex-end;
   display: $display-default;
   margin-bottom: 1vh;
 }
+
+.carousel-invisible {
+  display: none;
+}
+
+.carousel-visible {
+  display: flex;
+}
