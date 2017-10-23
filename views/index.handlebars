@@ -3,6 +3,8 @@
 <head>
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fjalla+One">
+  <script type='text/javascript' language='javascript' src='/js/carousel.js'/></script>
+  <!-- <script type='text/javascript' language='javascript' src='/js/carouselHandlebar.js'/></script> -->
 </head>
 
 <body>
@@ -32,39 +34,24 @@
       <p class="title">Cursos em destaque:</p>
     </div>
     <div class="inferior">
+      <script>
+        Handlebars.registerHelper('allContents', function() {
+          let args = [],
+            options = arguments[arguments.length - 1]
+          for (let i = 0; i < arguments.length - 1; i++ ) {
+            args.push(arguments[i])
+          }
+          return options.fn(this, {data: options.data, allContents: args})
+        })
+
+      </script>
       <ul>
         {{#allContents}}
-        <li class="carousel-visible"><a class='link' href="/content/{{ _id }}">{{ title }}</a>1</li>
-        {{/allContents}}
-        {{#allContents}}
-        <li class="carousel-visible"><a class='link' href="/content/{{ _id }}">{{ title }}</a>1</li>
-        {{/allContents}}
-        {{#allContents}}
-        <li class="carousel-visible"><a class='link' href="/content/{{ _id }}">{{ title }}</a>1</li>
-        {{/allContents}}
-        {{#allContents}}
-        <li class="carousel-invisible"><a class='link' href="/content/{{ _id }}">{{ title }}</a>2</li>
-        {{/allContents}}
-        {{#allContents}}
-        <li class="carousel-invisible"><a class='link' href="/content/{{ _id }}">{{ title }}</a>2</li>
-        {{/allContents}}
-        {{#allContents}}
-        <li class="carousel-invisible"><a class='link' href="/content/{{ _id }}">{{ title }}</a>2</li>
+        <li class="carousel-visible"><a class='link' href="/content/{{ _id }}">{{ title }}</a></li>
         {{/allContents}}
       </ul>
-      <i><input id="clickMe" type="button" value="clickme" onclick="doFunction();" /></i>
+      <i><input id="clickMe" type="button" value="clickme" onclick="carousel();" /></i>
     </div>
   </div>
-  <script>
-  document.getElementById("clickMe").onclick = function () {
-
-    let list = document.querySelectorAll("li");
-
-    for (let i = 0; i < list.length; ++i) {
-      list[i].classList.toggle('carousel-invisible')
-      list[i].classList.toggle('carousel-visible')
-    }
-  };
-  </script>
 </body>
 </html>
