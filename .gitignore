@@ -59,6 +59,3 @@ typings/
 
 # nightwatch reports
 test/e2e/reports/
-
-# css files
-public/css/
