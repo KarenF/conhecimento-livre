@@ -4,6 +4,7 @@ const content = require('./content')
 const author = require('./author')
 const course = require('./course')
 const admin = require('./admin')
+const contentList = require('./contentList')
 
 const allRoutes = {
   index: index(Author),
@@ -11,5 +12,6 @@ const allRoutes = {
   author: author(Author),
   course: course(Author),
   admin: admin(),
+  contentList: contentList(Author)
 }
 module.exports = allRoutes
